@@ -11,7 +11,7 @@ const openingTimeSchema = new mongoose.Schema({
       type: Boolean,
       required: true
     }
-});
+}, {_id : false});
 
 const reviewSchema = new mongoose.Schema({
     author: String,
@@ -36,9 +36,9 @@ const locationSchema = new mongoose.Schema({
     address: String,
     rating: {
         type: Number,
-        'default': 0,
+        default: 0,
         min: 0,
-        min: 5
+        max: 5
     },
     facilities: [String],
     coords: {
