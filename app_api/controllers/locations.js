@@ -12,18 +12,18 @@ const locationsListByDistance = (req, res) => {
         .json({"status" : "success"});
 };
 const locationsReadOne = (req, res) => {
-    res
-        .status(200)
-        .json({"status" : "success"});
-};
-const locationsUpdateOne = (req, res) => {
     Loc
         .findById(req.params.locationid)
         .exec((err, location) => {
             res
-                .status(200);
-                .json(location);
-        });
+                .status(200)
+                .json(location)
+        });    
+};
+const locationsUpdateOne = (req, res) => {
+    res
+        .status(200)
+        .json({"status" : "success"});
 };
 const locationsDeleteOne = (req, res) => {
     res
