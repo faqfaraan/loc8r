@@ -17,9 +17,13 @@ const locationsReadOne = (req, res) => {
         .json({"status" : "success"});
 };
 const locationsUpdateOne = (req, res) => {
-    res
-        .status(200)
-        .json({"status" : "success"});
+    Loc
+        .findById(req.params.locationid)
+        .exec((err, location) => {
+            res
+                .status(200);
+                .json(location);
+        });
 };
 const locationsDeleteOne = (req, res) => {
     res
